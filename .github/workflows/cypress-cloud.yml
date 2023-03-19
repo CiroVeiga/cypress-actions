@@ -8,7 +8,7 @@ on:
         default: cypress/e2e/*
         
 jobs:
-  cypress-e2e--electron:
+  cypress-e2e-electron:
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome107
@@ -28,7 +28,7 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: 1e6a9978-202a-4866-8104-3ae8471ffe04
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  cypress-e2e--chrome:
+  cypress-e2e-chrome:
     needs: cypress-e2e-electron
     runs-on: ubuntu-latest
     container:
@@ -49,7 +49,7 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: 1e6a9978-202a-4866-8104-3ae8471ffe04
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- cypress-e2e--firefox:
+ cypress-e2e-firefox:
     needs: cypress-e2e-electron
     runs-on: ubuntu-latest
     container:
